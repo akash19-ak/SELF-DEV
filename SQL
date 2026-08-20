@@ -1,0 +1,110 @@
+### *Table Schema*
+
+Employee (Emp_id, Name, Dept, Salary, City)
+
+---
+
+### *SQL Queries & Concepts*
+
+*1. Display all records*
+
+sql
+SELECT * FROM EMPLOYEE;
+
+
+
+*2. Display only Name*
+
+sql
+SELECT Name FROM EMPLOYEE;
+
+
+
+*3. Display Name and Salary*
+
+sql
+SELECT Name, Salary FROM EMPLOYEE;
+
+
+
+*4. Find Employees from the IT Department*
+
+sql
+SELECT * FROM Employee WHERE Dept = 'IT';
+
+
+
+*5. Find Employees with Salary greater than 60,000*
+
+sql
+SELECT * FROM Employee WHERE Salary > 60000;
+
+
+
+*6. Find Employees with Salary equal to 50,000*
+
+sql
+SELECT * FROM Employee WHERE Salary = 50000;
+
+
+
+*7. Find Employees whose Salary is between 50k and 70k*
+
+* Incorrect method (marked with X): SELECT * FROM Employee WHERE Salary > 50000 AND Salary < 70000;
+* Correct method:
+
+sql
+SELECT * FROM Employee WHERE Salary BETWEEN 50000 AND 70000;
+
+
+
+*8. Find IT Employees earning more than 60,000*
+
+sql
+SELECT * FROM EMPLOYEE WHERE Dept = 'IT' AND SALARY > 60000;
+
+
+
+*9. Find Employees from Pune or Mumbai*
+
+* Using OR:
+
+sql
+SELECT * FROM Emp WHERE City = 'PUNE' OR City = 'Mumbai';
+
+
+
+* Using IN operator:
+
+sql
+SELECT * FROM Emp WHERE CITY IN ('PUNE', 'Mumbai');
+
+
+
+> *Note on IN operator:* Used to select any value from a given list.
+
+---
+
+### *Subqueries & Aggregations*
+
+*10. Find the Maximum Salary*
+
+sql
+SELECT MAX(Salary) FROM Employee;
+
+
+
+*11. Find the Second Highest Salary*
+
+sql
+SELECT MAX(SALARY) AS s_h_s 
+FROM Employee 
+WHERE Salary < (SELECT MAX(SALARY) FROM Employee);
+
+
+
+* *Example breakdown from notes:*
+* Highest Salary = 1,50,000
+* 2nd Highest Salary = 1,20,000
+* 3rd Highest Salary = 1,00,000
+* The subquery (SELECT MAX(SALARY) FROM Employee) fetches 1,50,000. The outer query then finds the maximum salary lower than 1,50,000, which evaluates to 1,20,000.
