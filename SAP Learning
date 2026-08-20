@@ -327,3 +327,5 @@ These modules work together to provide an integrated business environment. For e
 Customer Order (SD) → Material Availability (MM) → Production (PP) → Delivery & Billing (SD) → Financial Posting (FI) → Cost & Profit Analysis (CO)
 
 This integration allows companies to reduce manual work, improve data accuracy, monitor business activities in real time, and make better management decisions.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
